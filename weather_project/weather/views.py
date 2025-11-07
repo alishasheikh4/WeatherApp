@@ -27,8 +27,6 @@ def get_weather(request):
         'country': data['sys']['country'],
         'icon': data['weather'][0]['icon']
     }
-
-    # Save to database
     weather_obj = Weather.objects.create(**weather_data)
 
     serializer = WeatherSerializer(weather_obj)
